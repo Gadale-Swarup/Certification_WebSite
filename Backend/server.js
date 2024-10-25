@@ -9,8 +9,8 @@ const app = express();
 const PORT = process.env.PORT || 5130;
 
 // Middleware
-app.use(bodyParser.json({ limit: "10mb" }));  // To handle large base64 image data
-app.use(cors()); // Enable CORS
+app.use(bodyParser.json({ limit: "20mb" }));  // To handle large base64 image data
+app.use(cors()); 
 
 // Use certificate routes
 app.use("/api", certificateRoutes); // All certificate routes will be under /api

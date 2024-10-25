@@ -1,4 +1,48 @@
-body {
+/* body {
     font-family: 'Graduate', sans-serif;
-  }
-  
+  } */
+
+  .container {
+    max-width: 600px;
+}
+
+.certificate {
+    border: 2px solid #007bff; /* Bootstrap primary color */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 123, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.certificate:hover {
+    transform: scale(1.05);
+}
+
+.certificate-content {
+    text-align: center;
+    padding: 30px;
+}
+
+.certificate-content h1 {
+    font-size: 2.5rem;
+    color: #007bff;
+}
+
+.certificate-content h2 {
+    font-size: 2rem;
+    margin: 20px 0;
+}
+
+.certificate-content p {
+    font-size: 1.25rem;
+}
+
+.btn {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker shade of Bootstrap primary */
+    transform: translateY(-2px);
+}
+

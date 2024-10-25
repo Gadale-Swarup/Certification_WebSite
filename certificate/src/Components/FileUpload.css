@@ -1,0 +1,149 @@
+
+.spinner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .spinner {
+    border: 8px solid rgba(0, 0, 0, 0.1);
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* General Container */
+.enhanced-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header */
+  .header-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Custom Table */
+  .custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+    background-color: #ffffff;
+  }
+  
+  .custom-table th, .custom-table td {
+    padding: 12px 15px;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .custom-table th {
+    background-color: #3498db;
+    color: #ffffff;
+    font-weight: 600;
+  }
+  
+  .custom-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .custom-table tr:hover {
+    background-color: #e0f7fa;
+  }
+  
+  /* Custom File Input */
+  .custom-file-input {
+    padding: 10px;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+    background-color: #f0f8ff;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  /* Button Styles */
+  .action-button {
+    padding: 8px 12px;
+    margin: 5px 0;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .action-button.btn-primary {
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+  }
+  
+  .action-button.btn-primary:hover {
+    background-color: #2980b9;
+  }
+  
+  .action-button.btn-success {
+    background-color: #2ecc71;
+    color: #ffffff;
+    border: none;
+  }
+  
+  .action-button.btn-success:hover {
+    background-color: #27ae60;
+  }
+  
+  .action-button.btn-secondary {
+    background-color: #95a5a6;
+    color: #ffffff;
+    border: none;
+  }
+  
+  .action-button.btn-secondary:hover {
+    background-color: #7f8c8d;
+  }
+  
+  /* Spinner Styles */
+  .spinner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .spinner {
+    border: 8px solid rgba(0, 0, 0, 0.1);
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  

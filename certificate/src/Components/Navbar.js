@@ -1,8 +1,9 @@
 import React from 'react';
 import Logo from "../img/LOGO.png"
 import "./Navbar.css"
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 const Navbar = () => {
+    const Navigate =useNavigate()
   return (
     <div>
  <nav class="navbar bg-body-tertiary">
@@ -20,16 +21,19 @@ const Navbar = () => {
     Wisdom Sprouts
     </span>
 
-    <Link to="/excel">
-   <span
+    <button onClick={Navigate('/excel')}>
+        excel1
+    </button>
+   <a 
     className='text-decoration-none text-black p-3 fs-5'
-    style={{marginRight:"30px"}}>
+    style={{marginRight:"30px"}}
+     href="/excel">
     Excel
-   </span>
-</Link>
+   </a>
 
   </div>
 </nav>
+
     </div>
   )
 }

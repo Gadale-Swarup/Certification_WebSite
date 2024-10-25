@@ -340,7 +340,7 @@ const Excelsheet = () => {
       };
 
       try {
-        const response = await fetch("http://localhost:5130/api/send-certificate", {
+        const response = await fetch("https://certification-backend.onrender.com/api/send-certificate", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

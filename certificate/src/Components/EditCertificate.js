@@ -284,6 +284,7 @@ import certificateBackground from "../img/certificate1.png";
 import "./style.css";
 
 const EditableCertificate = () => {
+  // const URL="https://certification-backend.onrender.com"
   const [name, setName] = useState("Supriya Jamadar");
   const [course, setCourse] = useState(
     "Full Stack Web Development - MERN Stack"
@@ -371,7 +372,7 @@ const EditableCertificate = () => {
 
       try {
         const response = await fetch(
-          "http://localhost:5130/api/send-certificate",
+          "https://certification-backend.onrender.com/api/send-certificate",
           {
             method: "POST",
             headers: {

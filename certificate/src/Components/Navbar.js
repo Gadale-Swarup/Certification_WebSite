@@ -21,15 +21,17 @@ const Navbar = () => {
     Wisdom Sprouts
     </span>
 
-    <button onClick={Navigate('/excel')}>
-        excel1
-    </button>
-   <a 
-    className='text-decoration-none text-black p-3 fs-5'
+    <span
+    className='text-black p-3 graduate-regular  text-success'
+     onClick={()=>{Navigate('/excel')}}>
+        Excel
+    </span>
+   {/* <a 
+    
     style={{marginRight:"30px"}}
      href="/excel">
     Excel
-   </a>
+   </a> */}
 
   </div>
 </nav>

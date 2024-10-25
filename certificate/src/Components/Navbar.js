@@ -1,6 +1,7 @@
 import React from 'react';
 import Logo from "../img/LOGO.png"
 import "./Navbar.css"
+import { Link } from 'react-router-dom';
 const Navbar = () => {
   return (
     <div>
@@ -19,12 +20,13 @@ const Navbar = () => {
     Wisdom Sprouts
     </span>
 
-   <a 
+    <Link to="/excel">
+   <span
     className='text-decoration-none text-black p-3 fs-5'
-    style={{marginRight:"30px"}}
-     href="/excel">
+    style={{marginRight:"30px"}}>
     Excel
-   </a>
+   </span>
+</Link>
 
   </div>
 </nav>

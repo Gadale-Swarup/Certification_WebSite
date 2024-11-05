@@ -293,7 +293,7 @@ const Completion = () => {
   
   // Pagination State
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 10; // Change this to control how many items to display per page
+  const itemsPerPage = 20; // Change this to control how many items to display per page
   const totalPages = Math.ceil(excelData.length / itemsPerPage); // Calculate total pages
 
   const certificateRef = useRef(null);
@@ -453,7 +453,7 @@ const Completion = () => {
       </table>
 
       {/* Pagination Controls */}
-      {itemsPerPage > 10 && totalPages > 1 && (
+      {itemsPerPage > 20 && totalPages > 1 && (
         <div className="pagination">
           <button
             className="btn btn-secondary"

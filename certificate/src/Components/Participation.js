@@ -277,12 +277,12 @@ const Participation = () => {
                   width: "80%",
                 }}
               >
-                <span>{`HAS SUCCESSFULLY COMPLETING THE `}</span>
+                <span>{`FOR PARTICIPATING IN THE `}</span>
                 <span style={{ color: "#ff5757" }}>
                     {/* {`"${selectedRow.Course}"`} */}
                     "DAILY PROGRAMMING CHALLENGE"
                 </span>
-                <span>{` ORGANIZED BY WISDOM SPROUTS IT TRAINING HUB, PUNE. FROM "${selectedRow["Start Date"]}" TO "${selectedRow["End Date"]}". `}</span>
+                <span>{` ORGANIZED BY WISDOM SPROUTS IT TRAINING HUB, PUNE FROM "${selectedRow["Start Date"]}" TO "${selectedRow["End Date"]}". `}</span>
                 <span>{`WE ACKNOWLEDGE THEIR COMMITMENT TO LEARNING AND PARTICIPATION IN THIS EVENT,`}<br/></span>
                 <span>{`WHERE THEY ENGAGED IN DAILY CHALLENGES AIMED AT ENHANCING PROGRAMMING KNOWLEDGE AND SKILLS.`}</span>
               </div>

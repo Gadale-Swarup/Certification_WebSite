@@ -552,12 +552,12 @@ const Completion = () => {
                   width: "80%",
                 }}
               >
-                <span>{`HAS SUCCESSFULLY COMPLETING THE `}</span>
+                <span>{`FOR SUCCESSFULLY COMPLETING THE `}</span>
                 <span style={{ color: "#ff5757" }}>
                     {/* {`"${selectedRow.Course}"`} */}
-                    "DAILY PROGRAMMING CHALLENGE"    
+                    "DAILY PROGRAMMING CHALLENGE 2024"    
                 </span>
-                <span>{` ORGANIZED BY WISDOM SPROUTS IT TRAINING HUB, PUNE. FROM "${selectedRow["Start Date"]}" TO "${selectedRow["End Date"]}". `}</span>
+                <span>{` ORGANIZED BY WISDOM SPROUTS IT TRAINING HUB, PUNE FROM "${selectedRow["Start Date"]}" TO "${selectedRow["End Date"]}". `}</span>
                 <span>{`THROUGH DEDICATION AND CONSISTENT EFFORTS DEMONSTRATED A KEEN UNDERSTANDING OF PROGRAMMING CONCEPTS, `}</span>
                 <span>{`COMPLETING DAILY CHALLENGES AND HONING PROBLEM-SOLVING SKILLS. WE COMMEND HIS/HER COMMITMENT AND WISH HIM/HER THE VERY BEST IN ALL FUTURE ENDEAVOURS `}</span>
               </div>

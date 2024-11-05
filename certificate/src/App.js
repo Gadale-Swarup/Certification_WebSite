@@ -5,6 +5,8 @@ import EditableCertificate from "./Components/EditCertificate";
 import Excelsheet from "./Components/FileUpload";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom"
 import Navbar from "./Components/Navbar";
+import Completion from "./Components/Completion";
+import Participation from "./Components/Participation";
 // import EditCertificate from "./Components/SingleCertificate";
 
 const App = () => {
@@ -18,6 +20,8 @@ const App = () => {
         <Route path="/" element={<EditableCertificate/>}/>
         {/* <Route path="/" element={<EditCertificate/>}/> */}
         <Route path="/excel" element={<Excelsheet/>}/>
+        <Route path="/Completion" element={<Completion/>}/>
+        <Route path="/participation" element={<Participation/>}/>
       </Routes>
     </Router>
     </>

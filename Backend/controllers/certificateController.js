@@ -1,3 +1,4 @@
+
 const nodemailer = require("nodemailer");
 
 require('dotenv').config(); 
@@ -19,7 +20,9 @@ const sendCertificate = async (req, res) => {
 
   // Create a transporter for sending emails
   const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp.hostinger.com", // Hostinger's SMTP server
+    port: 465, // or 587 for TLS
+    secure: true, // Use true for 465, false for 587
     auth: {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS,
@@ -28,10 +31,41 @@ const sendCertificate = async (req, res) => {
 
   // Create email options
   const mailOptions = {
-    from: process.env.EMAIL_USER,
+    from: `"Wisdom Sprouts IT Training Hub" <${process.env.SMTP_USER}>`,
     to: email, // User-provided email
-    subject: `Certificate for ${name}`,
-    text: `Dear ${name},\n\nAttached is your certificate for successfully completing the course.\n\nBest regards,\nYour Company`,
+    subject: `🎉 Congratulations, ${name}! Your Daily Programming Challenge 2024 Certificate 🎓`,
+    html: `
+    <div style="font-family: Arial, sans-serif; color: #333; padding: 20px;">
+      <h2 style="color: #4CAF50; margin-bottom: 10px;">Hello ${name},</h2>
+      
+      <p style="font-size: 1.1em;">We are thrilled to congratulate you on successfully participation in the Daily Programming Challenge 2024 organized by Wisdom Sprouts IT Training Hub, Pune! 🌟</p>
+      
+      <p style="font-size: 1.1em;">Your hard work and dedication have paid off, and it's our pleasure to award you with the attached certificate. This certificate is a testament to your efforts, skills, and commitment to growth.</p>
+      
+      <p style="font-size: 1.1em;">Feel free to print or share it with your network as you continue on your journey of success!</p>
+      
+      <div style="border-left: 3px solid #4CAF50; padding-left: 15px; margin-top: 20px;">
+        <p style="font-size: 1.2em; color: #555;">Best wishes,</p>
+        <p style="font-size: 1.2em; font-weight: bold;">Wisdom Sprouts IT Training Hub</p>
+      </div>
+
+      <hr style="margin: 30px 0; border: none; border-top: 1px solid #ddd;" />
+      
+      <footer style="font-size: 0.9em; color: #777;">
+        <p>If you have any questions, feel free to reach us at <a href="mailto:support@wisdomsprouts.in" style="color: #4CAF50; text-decoration: none;">helpdesk@wisdomsprouts.in</a>.</p>
+        
+        <p style="margin-top: 15px;">Stay connected and follow us on social media for updates, tips, and more:</p>
+        <p>
+          <a href="https://www.instagram.com/wisdomsprouts" style="color: #4CAF50; text-decoration: none; margin-right: 10px;">
+            Instagram
+          </a> |
+          <a href="https://www.linkedin.com/company/wisdom-sprouts-training-and-consulting-solutions" style="color: #4CAF50; text-decoration: none; margin-left: 10px;">
+            LinkedIn
+          </a>
+        </p>
+      </footer>
+    </div>
+  `,
     attachments: [
       {
         filename: fileName,
@@ -189,13 +223,10 @@ module.exports = { sendCertificate };
 //     res.status(500).json({ message: "Error generating certificate" });
 //   }
 // };
+
 // module.exports = {
 //    generateCertificate, 
 //    sendCertificate };
-
-
-
-
 
 
 // const path = require('path');
@@ -203,10 +234,6 @@ module.exports = { sendCertificate };
 // require('dotenv').config();
 // const { createCanvas, loadImage, registerFont } = require('canvas');
 // const nodemailer = require('nodemailer');
-
-// // Register a custom font if needed (e.g., Google Fonts like Graduate)
-// // Make sure to download and store the font file in the correct directory
-// registerFont(path.join(__dirname, '../public/font/Graduate-Regular.ttf'), { family: 'Graduate' });
 
 // // Function to send the certificate via email
 // const sendCertificate = async (req, res, fileName) => {
@@ -242,12 +269,95 @@ module.exports = { sendCertificate };
 //   }
 // };
 
-// // Function to generate the certificate
+// // const generateCertificate = async (req, res) => {
+// //   const { name, course, startDate, endDate, awardedDate, certificateNo, email } = req.body;
+
+// //   try {
+// //     // Load the certificate background image
+// //     const certificateBackground = await loadImage(path.join(__dirname, '../public/img/certificate1.png'));
+
+// //     // Create a canvas with the same dimensions as the background
+// //     const canvas = createCanvas(certificateBackground.width, certificateBackground.height);
+// //     const ctx = canvas.getContext('2d');
+
+// //     // Draw the background image
+// //     ctx.drawImage(certificateBackground, 0, 0);
+
+// //     // Set text properties for the recipient's name
+// //     ctx.font = '54px Times New Roman';
+// //     ctx.fillStyle = 'black';
+// //     ctx.textAlign = 'center';
+// //     ctx.fillText(name.toUpperCase(), canvas.width / 2, 770); // Centered name position
+
+// //     // Set consistent line spacing and text properties for the certificate text
+// //     ctx.font = '42px Times New Roman';
+// //     ctx.fillStyle = 'black';
+    
+// //     // Start with the first line and increase the y-coordinate by a fixed amount for each subsequent line
+// //     let yPosition = 860;
+// //     const lineSpacing = 70; // Adjust line spacing as needed for visual alignment
+    
+// //     ctx.fillText(
+// //       `FOR SUCCESSFULLY COMPLETING THE "${course.toUpperCase()}" COURSE`,
+// //       canvas.width / 2,
+// //       yPosition
+// //     );
+// //     yPosition += lineSpacing;
+// //     ctx.fillText(
+// //       `AT WISDOM SPROUTS - IT TRAINING HUB, PUNE. FROM "${startDate.toUpperCase()}" TO`,
+// //       canvas.width / 2,
+// //       yPosition
+// //     );
+// //     yPosition += lineSpacing;
+// //     ctx.fillText(
+// //       `"${endDate.toUpperCase()}". HIS/HER PERFORMANCE HAS BEEN SATISFACTORY SO AS TO FULFILL THE `,
+// //       canvas.width / 2,
+// //       yPosition
+// //     );
+// //     yPosition += lineSpacing;
+// //     ctx.fillText(
+// //       ` REQUIREMENTS FOR SUCCESSFUL COMPLETION OF THE TRAINING.`,
+// //       canvas.width / 2,
+// //       yPosition
+// //     );
+// //     yPosition += lineSpacing;
+// //     ctx.fillText(
+// //       `IN TESTIMONY THEREOF, THIS CERTIFICATE IS AWARDED ON THE ${awardedDate.toUpperCase()}.`,
+// //       canvas.width / 2,
+// //       yPosition
+// //     );
+
+// //     // Add the certificate number at the bottom right
+// //     ctx.font = '20px Times New Roman';
+// //     ctx.fillText(`CERTIFICATE NO: ${certificateNo.toUpperCase()}`, canvas.width - 150, canvas.height - 40);
+
+// //     // Sanitize the file name to avoid invalid characters
+// //     const sanitizeFileName = (name) => {
+// //       return name.replace(/[<>:"/\\|?*]/g, '_'); // Replace invalid characters with underscores
+// //     };
+
+// //     const fileName = `certificate-${sanitizeFileName(name)}.png`;
+// //     const filePath = path.join(__dirname, '../public/img/', fileName); // Ensure this points correctly to the public img directory
+// //     const buffer = canvas.toBuffer('image/png');
+// //     await fs.writeFileSync(filePath, buffer);
+// //     console.log("Saving certificate to:", filePath);
+
+// //     // Send the email after generating the certificate
+// //     await sendCertificate(req, res, fileName);
+
+// //   } catch (error) {
+// //     console.error("Error generating certificate:", error);
+// //     res.status(500).json({ message: "Error generating certificate" });
+// //   }
+// // };
 
 // const generateCertificate = async (req, res) => {
 //   const { name, course, startDate, endDate, awardedDate, certificateNo, email } = req.body;
 
 //   try {
+//     // Register your custom font
+//     registerFont(path.join(__dirname, '../public/font/Graduate.ttf'), { family: 'Graduate' });
+
 //     // Load the certificate background image
 //     const certificateBackground = await loadImage(path.join(__dirname, '../public/img/certificate1.png'));
 
@@ -258,52 +368,62 @@ module.exports = { sendCertificate };
 //     // Draw the background image
 //     ctx.drawImage(certificateBackground, 0, 0);
 
-//     // Set text properties for "CERTIFICATE OF COMPLETION"
-//     ctx.font = '54px Graduate'; // Update to match the style in the image
-//     ctx.fillStyle = '#2f3e6a'; // Dark blue color matching the image
-//     ctx.textAlign = 'center';
-//     ctx.fillText('CERTIFICATE OF COMPLETION', canvas.width / 2, 180);
-
-//     // Set text properties for the name (larger, bolded)
-//     ctx.font = 'bold 48px Times New Roman';
-//     ctx.fillStyle = 'black';
-//     ctx.fillText(name.toUpperCase(), canvas.width / 2, 310); // Centered name position
-
-//     // Set text properties for the course information
-//     ctx.font = '22px Times New Roman';
+//     // Set text properties for the recipient's name using the custom font
+//     ctx.font = '54px Graduate'; // Use the registered custom font
 //     ctx.fillStyle = 'black';
 //     ctx.textAlign = 'center';
+//     ctx.fillText(name.toUpperCase(), canvas.width / 2, 770); // Centered name position
+
+//     // Set consistent line spacing and text properties for the certificate text
+//     ctx.font = '42px Graduate'; // Use the registered custom font
+//     ctx.fillStyle = 'black';
+
+//     let yPosition = 860;
+//     const lineSpacing = 70;
+
 //     ctx.fillText(
-//       `For successfully completing the "${course}" course at Wisdom Sprouts - IT Training Hub, Pune.`,
+//       `FOR SUCCESSFULLY COMPLETING THE "${course.toUpperCase()}" COURSE`,
 //       canvas.width / 2,
-//       410
+//       yPosition
 //     );
-//     ctx.fillText(`From "${startDate}" to "${endDate}".`, canvas.width / 2, 450);
+//     yPosition += lineSpacing;
 //     ctx.fillText(
-//       `His/Her performance has been satisfactory so as to fulfill the requirements for successful`,
+//       `AT WISDOM SPROUTS - IT TRAINING HUB, PUNE. FROM "${startDate.toUpperCase()}" TO`,
 //       canvas.width / 2,
-//       490
+//       yPosition
 //     );
+//     yPosition += lineSpacing;
 //     ctx.fillText(
-//       `completion of the training. This certificate is awarded on the ${awardedDate}.`,
+//       `"${endDate.toUpperCase()}". HIS/HER PERFORMANCE HAS BEEN SATISFACTORY SO AS TO FULFILL THE `,
 //       canvas.width / 2,
-//       530
+//       yPosition
+//     );
+//     yPosition += lineSpacing;
+//     ctx.fillText(
+//       `REQUIREMENTS FOR SUCCESSFUL COMPLETION OF THE TRAINING.`,
+//       canvas.width / 2,
+//       yPosition
+//     );
+//     yPosition += lineSpacing;
+//     ctx.fillText(
+//       `IN TESTIMONY THEREOF, THIS CERTIFICATE IS AWARDED ON THE ${awardedDate.toUpperCase()}.`,
+//       canvas.width / 2,
+//       yPosition
 //     );
 
-//     // Add the certificate number at the bottom
-//     ctx.font = '20px Times New Roman';
-//     ctx.fillStyle = 'black';
-//     ctx.fillText(`Certificate No: ${certificateNo}`, canvas.width - 180, canvas.height - 40); // Bottom right position
+//     // Add the certificate number at the bottom right
+//     ctx.font = '42px Graduate'; // Use the registered custom font
+//     ctx.fillText(`${certificateNo}`, canvas.width - 150, canvas.height - 40);
 
 //     // Sanitize the file name to avoid invalid characters
 //     const sanitizeFileName = (name) => {
 //       return name.replace(/[<>:"/\\|?*]/g, '_'); // Replace invalid characters with underscores
 //     };
-    
+
 //     const fileName = `certificate-${sanitizeFileName(name)}.png`;
-//     const filePath = path.join(__dirname, '../public/img/', fileName); // Ensure this points correctly to the public img directory
+//     const filePath = path.join(__dirname, '../public/img/', fileName);
 //     const buffer = canvas.toBuffer('image/png');
-//     await fs.writeFileSync(filePath, buffer);
+//     await fs.promises.writeFile(filePath, buffer); // Use promises with fs
 //     console.log("Saving certificate to:", filePath);
 
 //     // Send the email after generating the certificate
@@ -314,6 +434,5 @@ module.exports = { sendCertificate };
 //     res.status(500).json({ message: "Error generating certificate" });
 //   }
 // };
-
 
 // module.exports = { generateCertificate, sendCertificate };

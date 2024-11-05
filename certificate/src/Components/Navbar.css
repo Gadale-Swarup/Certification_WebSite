@@ -8,3 +8,16 @@
     /* color:"rgba(var(--bs-success-rgb),var(--bs-bg-opacity))!important"; */
   }
   
+  .navbar {
+    background-color: #f8f9fa; /* Light background color */
+}
+
+.navbar .nav-link {
+    cursor: pointer; /* Change cursor on hover */
+    transition: color 0.2s ease;
+}
+
+.navbar .nav-link:hover {
+    color: #ff5757; /* Change color on hover */
+}
+

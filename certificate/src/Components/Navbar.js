@@ -1,43 +1,71 @@
 import React from 'react';
-import Logo from "../img/LOGO.png"
-import "./Navbar.css"
+import Logo from "../img/LOGO.png";
+import "./Navbar.css";
 import { useNavigate } from 'react-router-dom';
+
 const Navbar = () => {
-    const Navigate =useNavigate()
-  return (
-    <div>
- <nav class="navbar bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand"
-    style={{objectFit:"cover"}}
-    href="/">
-      <img
-       src="https://media.canva.com/v2/image-resize/format:PNG/height:356/quality:100/uri:s3%3A%2F%2Fmedia-private.canva.com%2F8f_TA%2FMAD3We8f_TA%2F1%2Fp.png/watermark:F/width:800?csig=AAAAAAAAAAAAAAAAAAAAALJlRp_gFFD0h6EJTQQC8AmY10A2olFBafQIPZAnV-9b&exp=1729869710&osig=AAAAAAAAAAAAAAAAAAAAAFIB-Q-0QBcvuq8M9X14ZwT8p9VnLV3E0YE9OXFn0yiY&signer=media-rpc&x-canva-quality=screen" 
-       alt="Logo" width="150" height="60" class="d-inline-block align-text-top"/>
-    </a>
-    <span className='graduate-regular fs-3 text-success'
-    style={{marginRight:"10%"}}
-    >
-    Wisdom Sprouts
-    </span>
+    const navigate = useNavigate();
 
-    <span
-    className='text-black p-3 graduate-regular  text-success'
-     onClick={()=>{Navigate('/excel')}}>
-        Excel
-    </span>
-   {/* <a 
-    
-    style={{marginRight:"30px"}}
-     href="/excel">
-    Excel
-   </a> */}
-
-  </div>
-</nav>
-
-    </div>
-  )
+    return (
+        <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+            <div className="container-fluid">
+                <a className="navbar-brand" href="/">
+                    <img
+                        src={Logo}
+                        alt="Logo"
+                        width="150"
+                        height="70"
+                        className="d-inline-block align-text-top"
+                        style={{ objectFit: "cover" }}
+                    />
+                </a>
+                <span className='graduate-regular fs-3 text-success mx-2'>
+                    Wisdom Sprouts
+                </span>
+                <button
+                    className="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse" id="navbarNav">
+                    <ul className="navbar-nav ms-auto">
+                        <li className="nav-item">
+                            <span
+                                className='nav-link graduate-regular text-success'
+                                onClick={() => { navigate('/excel') }}
+                            >
+                                &nbsp;&nbsp;&nbsp;Couser <br/>
+                                Certificate
+                            </span>
+                        </li>
+                        <li className="nav-item">
+                            <span
+                                className='nav-link graduate-regular text-success'
+                                onClick={() => { navigate('/Completion') }}
+                            >
+                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DLC<br/> 
+                               Completion
+                            </span>
+                        </li> <li className="nav-item">
+                            <span
+                                className='nav-link graduate-regular text-success'
+                                onClick={() => { navigate('/participation') }}
+                            >
+                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DLC<br/> 
+                               Participation
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    );
 }
 
-export default Navbar
+export default Navbar;
